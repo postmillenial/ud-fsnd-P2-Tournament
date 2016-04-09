@@ -57,7 +57,7 @@ def registerPlayer(name):
     DB.cursor.execute(SQL, (bleach.clean(name),))
     DB.connection.commit()
 
-def playerStandings():
+def playerStandings(tournamentID):
     """Returns a list of the players and their win records, sorted by wins.
 
     The first entry in the list should be the player in first place, or a player
@@ -74,7 +74,7 @@ def playerStandings():
     #
     #
 
-def reportMatch(winner, loser):
+def reportMatch(tournamentID, winner, loser):
     """Records the outcome of a single match between two players.
 
     Args:
@@ -85,7 +85,7 @@ def reportMatch(winner, loser):
     # - tournament_id
     # - win/loss/draw stuff
 
-def swissPairings():
+def swissPairings(tournamentID):
     """Returns a list of pairs of players for the next round of a match.
 
     Assuming that there are an even number of players registered, each player
