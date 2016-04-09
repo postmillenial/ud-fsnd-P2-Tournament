@@ -23,7 +23,10 @@ def connect():
 
 def deleteMatches(tournament_id):
     """Remove all the match records from the database."""
-
+    ''' NOTE: unit tests will currently break on this as i've added the tournament argument'''
+    SQL = "DELETE FROM matches where tournament_id=%s"
+    DB.cursor.execute(SQL, (tournament_id,))
+    connection.commit()
 
 def deletePlayers():
     """Remove all the player records from the database."""
